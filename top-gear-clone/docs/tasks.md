@@ -14,14 +14,20 @@
 
 ## Tasks
 
-- [ ] 1.0 Set up main game loop and window
+- [x] 1.0 Set up main game loop and window
   - [x] 1.1 Create the main game window using Pygame
   - [x] 1.2 Initialize Pygame and set up the display surface
   - [x] 1.3 Implement the main game loop structure
   - [x] 1.4 Add basic event handling for quitting the game
   - [x] 1.5 Set up frame rate control (target 60 FPS)
   - [x] 1.6 Display a blank screen to confirm setup
-- [ ] 2.0 Implement player car controls and logic
+  - [ ] 2.0 Implement player car controls and logic
+    - [x] 2.1 Create a Player class to represent the car
+    - [x] 2.2 Add attributes for position, speed, and direction
+    - [x] 2.3 Implement methods for accelerating, braking, and steering
+    - [x] 2.4 Handle keyboard input to control the car
+    - [x] 2.5 Update the player's position based on input and speed
+    - [x] 2.6 Draw the player car on the screen
 - [ ] 3.0 Render road with dynamic perspective and roadside objects
 - [ ] 4.0 Implement HUD for speed, timer, lap count, and fuel
 - [ ] 5.0 Add pause/resume functionality and game state management

@@ -9,13 +9,19 @@ def initialize_display(width=800, height=600):
     screen = pygame.display.set_mode((width, height))
     return screen
 
+from player import Player
+
 def main():
     screen = initialize_display()
     clock = pygame.time.Clock()
+    player = Player()
     running = True
     while running:
         running = handle_quit_event()
+        player.handle_input()
+        player.update()
         screen.fill((0, 0, 0))
+        player.draw(screen)
         pygame.display.flip()
         clock.tick(60)
     pygame.quit()

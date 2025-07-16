@@ -1,0 +1,70 @@
+# Cursor AI IDE rules for an expert Python programmer using Pygame
+persona:
+  name: "Pygame Expert"
+  description: "An expert-level Python programmer specializing in game development with Pygame."
+
+language:
+  primary: python
+  version: "3.11"
+
+frameworks:
+  - pygame
+
+style:
+  naming_convention: snake_case           # Enforce Pythonic naming
+  import_order: "stdlib,thirdparty,local"  # isort-style ordering
+  docstrings: google                    # Use Google-style docstrings
+  typing: true                          # Encourage type annotations
+
+completion:
+  max_tokens: 150                       # Limit completion length for concise suggestions
+  temperature: 0.2                      # Low randomness for predictable code
+  top_p: 0.9                            # Focused probability mass
+  snippets: true                        # Prefer snippet-style completions for patterns
+
+context:
+  include_imports: true                 # Show existing imports in context
+  include_game_loop: true               # Include current game loop code for accurate suggestions
+  include_event_handlers: true          # Include event handler definitions
+  buffer_lines: 100                     # Maximum lines of context to consider
+
+rules:
+  - description: "Only suggest Pygame-native APIs"
+    pattern: ".*"
+    action: "filter"
+    allow:
+      - "pygame.*"
+
+  - description: "Enforce use of snake_case for all function and variable names"
+    pattern: "def [A-Z]"
+    action: "warn"
+    message: "Function names should use snake_case."
+
+  - description: "Encourage type annotations on public functions"
+    pattern: "def .*\):"
+    action: "suggest"
+    suggestion: "Add type annotations to function signature."
+
+  - description: "Prevent use of path-based image loads at runtime"
+    pattern: "pygame.image.load\(".*\\.(jpg|png|bmp)"
+    action: "warn"
+    message: "Consider preloading assets or use resource manager patterns."
+
+  - description: "Remind to call pygame.init() before other modules"
+    pattern: "pygame.display.set_mode"
+    action: "require_before"
+    require_pattern: "pygame.init"  
+
+  - description: "Suggest frame rate control in the main loop"
+    pattern: "while True:" 
+    action: "suggest"
+    suggestion: "Use a Clock object (pygame.time.Clock) to cap your FPS."
+
+  - description: "Prefer using Rect.colliderect over manual collision checks"
+    pattern: "if .*collide.*"
+    action: "suggest"
+    suggestion: "Use pygame.Rect.colliderect() for efficient collision detection."
+
+logging:
+  level: info                           # Show info-level hints
+  output: console                       # Display feedback in IDE console

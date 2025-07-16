@@ -1,0 +1,30 @@
+## Relevant Files
+
+- `src/main.py` - Main game loop and initialization.
+- `src/hud.py` - Handles HUD rendering (speedometer, timer, lap count, fuel).
+- `src/platform_manager.py` - Manages road strips and perspective scaling.
+- `src/player.py` - Player car logic and controls.
+- `src/events.py` - Input handling (keyboard events).
+- `assets/` - Sprites and images for road, scenery, objects, and HUD.
+- `test/` - Directory for unit and integration tests.
+
+### Notes
+- Unit tests should be placed alongside the code files they are testing (e.g., `test/test_hud.py` for `hud.py`).
+- Use `python -m unittest discover` or similar to run all tests.
+
+## Tasks
+
+- [ ] 1.0 Set up main game loop and window
+  - [x] 1.1 Create the main game window using Pygame
+  - [x] 1.2 Initialize Pygame and set up the display surface
+  - [x] 1.3 Implement the main game loop structure
+  - [x] 1.4 Add basic event handling for quitting the game
+  - [x] 1.5 Set up frame rate control (target 60 FPS)
+  - [x] 1.6 Display a blank screen to confirm setup
+- [ ] 2.0 Implement player car controls and logic
+- [ ] 3.0 Render road with dynamic perspective and roadside objects
+- [ ] 4.0 Implement HUD for speed, timer, lap count, and fuel
+- [ ] 5.0 Add pause/resume functionality and game state management
+- [ ] 6.0 Ensure smooth performance at 60 FPS
+
+I have generated the high-level tasks based on the PRD. Ready to generate the sub-tasks? Respond with 'Go' to proceed.
